@@ -44,7 +44,7 @@ BLOB_RESULT Blob_UploadFromSasUri(const char* SASURI, const unsigned char* sourc
             /*to find the hostname, the following logic is applied:*/
             /*the hostname starts at the first character after ":\\"*/
             /*the hostname ends at the first character before the next "\" after ":\\"*/
-            const char* hostnameBegin = strstr(SASURI, ":\\\\");
+            const char* hostnameBegin = strstr(SASURI, "://");
             if (hostnameBegin == NULL)
             {
                 /*Codes_SRS_BLOB_02_005: [ If the hostname cannot be determined, then Blob_UploadFromSasUri shall fail and return BLOB_INVALID_ARG. ]*/
@@ -54,7 +54,7 @@ BLOB_RESULT Blob_UploadFromSasUri(const char* SASURI, const unsigned char* sourc
             else
             {
                 hostnameBegin += 3; /*have to skip 3 characters which are ":\\"*/
-                const char* hostnameEnd = strchr(hostnameBegin, '\\');
+                const char* hostnameEnd = strchr(hostnameBegin, '/');
                 if (hostnameEnd == NULL)
                 {
                     /*Codes_SRS_BLOB_02_005: [ If the hostname cannot be determined, then Blob_UploadFromSasUri shall fail and return BLOB_INVALID_ARG. ]*/
