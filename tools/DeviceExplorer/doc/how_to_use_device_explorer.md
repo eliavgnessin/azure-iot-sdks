@@ -60,6 +60,7 @@ Add the address of your protocol gateway to the **Protocol Gateway HostName** fi
 
 <a name="listdevices"/>
 -  Click **List** to query the list of registered devices with the connected IoT Hub.
+> **Note:** The list query cannot display more than 1000 devices. For an IoT Hub that has more than 990 devices other tools should be used.
 
 <a name="createdevice"/>
 ### Create device
